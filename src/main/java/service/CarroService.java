@@ -25,6 +25,7 @@ public class CarroService {
 
     }
     public Carro saveCarro(Long id, Carro carro ){
+        //verificar se na hora de  salvar tenho que fazer um uper no modelo por conta do enum
         Carro carroNovo = carroRepository.save(carro);
         Carro carroVerificado = getCarroByChassi(id, carroNovo.getNumeroChassi());
         return carroVerificado;

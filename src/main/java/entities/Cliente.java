@@ -1,6 +1,7 @@
 package entities;
 
 
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -31,4 +32,8 @@ public class Cliente extends Pessoa{
         clienteAntigo.setSaldo(clienteAtualizado.getSaldo());
     }
     public Cliente(){}
+
+    public void tratamentoErroChassi(Funcionario funcionario){
+        //tentar criar uma forma generica para lhe dar com erros de requisição simples como cliente não encontrado ou algo parecido
+    }
 }
