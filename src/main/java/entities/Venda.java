@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,6 +18,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
+@Table(name = "vendas")
 public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -82,4 +84,5 @@ public class Venda {
         
 
     // }
+    public Venda(){}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Enum.Modelo;
 import entities.Venda;
 
 import repository.VendaRepository;
@@ -48,6 +49,29 @@ public class VendaService {
         return venda;
 
     }
-    
+    public double valorTotalVenda(){
+        List<Venda> vendas = vendaRepository.findAll();
+        Venda venda = new Venda();
+        double vendaTotal = venda.valorTotalVenda(vendas);
+        return vendaTotal;
 
+    }
+    public double vendaTotalPorModelo( Modelo modelo){
+        List<Venda> vendas = vendaRepository.findAll();
+        Venda venda = new Venda();
+        double vendaPorModelo = venda.vendaTotalPorModelo(vendas, modelo);
+        return vendaPorModelo;
+    }
+    public Integer numeroTotalVendas(){
+        List<Venda> vendas = vendaRepository.findAll();
+        Venda venda = new Venda();
+        int numeroTotalVendas = venda.numeroTotalVendas(vendas);
+        return numeroTotalVendas;
+    }
+    public Integer numeroVendasPorModelo(Modelo modelo){
+        List<Venda> vendas = vendaRepository.findAll();
+        Venda venda = new Venda();
+        int numeroVendasPorModelo = venda.numeroVendasPorModelo(vendas,modelo);
+        return numeroVendasPorModelo;
+    }
 }

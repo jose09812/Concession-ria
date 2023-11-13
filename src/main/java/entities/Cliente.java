@@ -2,6 +2,8 @@ package entities;
 
 
 
+import org.springframework.beans.BeanUtils;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -25,11 +27,11 @@ public class Cliente extends Pessoa{
         return true;
     }
     public void setCliente(Cliente clienteAntigo, Cliente clienteAtualizado){
-        clienteAntigo.setCpf(clienteAtualizado.getCpf());
-        clienteAntigo.setData_nascimento(clienteAtualizado.getData_nascimento());
-        clienteAntigo.setNome(clienteAtualizado.getNome());
-        clienteAntigo.setTelefone(clienteAtualizado.getTelefone());
-        clienteAntigo.setSaldo(clienteAtualizado.getSaldo());
+         try {
+        BeanUtils.copyProperties(clienteAntigo, clienteAtualizado);
+    } catch (Exception e) {
+       
+    }
     }
     public Cliente(){}
 

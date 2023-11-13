@@ -3,8 +3,11 @@ package entities;
 import java.io.DataInput;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
+
 import Enum.Modelo;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
+@Table(name = "carros")
 public class Carro {
     private Modelo modeloCarro;
     private String numeroChassi;
@@ -43,5 +47,12 @@ public class Carro {
     public void verificacao(Funcionario funcionario){
         
 
+    }
+    public void setCarro(Carro carroAntigo, Carro carroAtualizado){
+          try {
+        BeanUtils.copyProperties(carroAntigo, carroAtualizado);
+    } catch (Exception e) {
+       
+    }
     }
 }
