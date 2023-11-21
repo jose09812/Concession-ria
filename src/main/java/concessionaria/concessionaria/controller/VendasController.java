@@ -1,4 +1,4 @@
-package controller;
+package concessionaria.concessionaria.controller;
 
 import java.util.List;
 
@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import Enum.Modelo;
-import entities.Venda;
-
-import service.VendaService;
+import concessionaria.concessionaria.Enum.Modelo;
+import concessionaria.concessionaria.entities.Venda;
+import concessionaria.concessionaria.service.VendaService;
 
 public class VendasController {
     @Autowired

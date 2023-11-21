@@ -1,4 +1,4 @@
-package controller;
+package concessionaria.concessionaria.controller;
 
 import java.util.List;
 
@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
-import entities.Carro;
-import service.CarroService;
+import concessionaria.concessionaria.entities.Carro;
+import concessionaria.concessionaria.service.CarroService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 public class CarroController {
     @Autowired

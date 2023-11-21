@@ -1,11 +1,12 @@
-package service;
+package concessionaria.concessionaria.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import entities.Carro;
-import repository.CarroRepository;
+import concessionaria.concessionaria.entities.Carro;
+import concessionaria.concessionaria.repository.CarroRepository;
+
 
 public class CarroService {
 

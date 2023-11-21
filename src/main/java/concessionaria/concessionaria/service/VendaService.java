@@ -1,13 +1,12 @@
-package service;
+package concessionaria.concessionaria.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import Enum.Modelo;
-import entities.Venda;
-
-import repository.VendaRepository;
+import concessionaria.concessionaria.Enum.Modelo;
+import concessionaria.concessionaria.entities.Venda;
+import concessionaria.concessionaria.repository.VendaRepository;
 
 
 

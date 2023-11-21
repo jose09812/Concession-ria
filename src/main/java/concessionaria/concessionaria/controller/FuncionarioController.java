@@ -1,4 +1,4 @@
-package controller;
+package concessionaria.concessionaria.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import entities.Funcionario;
-import service.FuncionarioService;
+import concessionaria.concessionaria.entities.Funcionario;
+import concessionaria.concessionaria.service.FuncionarioService;
 
 public class FuncionarioController {
      

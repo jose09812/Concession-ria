@@ -1,29 +1,40 @@
-package entities;
+package concessionaria.concessionaria.entities;
 
-import java.io.DataInput;
+
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 
-import Enum.Modelo;
+import concessionaria.concessionaria.Enum.Modelo;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@Entity
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "carros")
 public class Carro {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
     private Modelo modeloCarro;
     private String numeroChassi;
     private double valor;
     private boolean carroNovo;
     private boolean carroDisponivel;
-    private DataInput anoLancamento;
-    private DataInput dataVenda;
+    private LocalDate anoLancamento;
+    private LocalDate dataVenda;
     @OneToOne(mappedBy = "carro")
     private Venda venda;
     
@@ -41,9 +52,7 @@ public class Carro {
         
 
     }
-    public Carro(){
-
-    }
+   
     public void verificacao(Funcionario funcionario){
         
 

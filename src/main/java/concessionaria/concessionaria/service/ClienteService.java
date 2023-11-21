@@ -1,14 +1,15 @@
-package service;
+package concessionaria.concessionaria.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import entities.Cliente;
-import repository.ClienteRepository;
+
+import concessionaria.concessionaria.entities.Cliente;
+import concessionaria.concessionaria.repository.ClienteRepository;
 
 
 
-
+//
 @Service
 public class ClienteService {
     @Autowired

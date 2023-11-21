@@ -1,11 +1,11 @@
-package service;
+package concessionaria.concessionaria.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import entities.Funcionario;
-import repository.FuncionarioRepository;
+import concessionaria.concessionaria.entities.Funcionario;
+import concessionaria.concessionaria.repository.FuncionarioRepository;
 
 public class FuncionarioService {
      @Autowired

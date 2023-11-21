@@ -1,7 +1,8 @@
-package repository;
+package concessionaria.concessionaria.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import entities.Carro;
+
+import concessionaria.concessionaria.entities.Carro;
 
 
 
