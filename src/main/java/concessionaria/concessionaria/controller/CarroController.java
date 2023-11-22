@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import concessionaria.concessionaria.entities.Carro;
 import concessionaria.concessionaria.service.CarroService;
@@ -25,23 +26,23 @@ public class CarroController {
         return new ResponseEntity<>(carros, HttpStatus.OK);
     } 
     @GetMapping("/id")
-    public ResponseEntity <Carro> getCarroByChassi(@PathVariable Long id, String chassi){
+    public ResponseEntity <Carro> getCarroByChassi(@PathVariable Long id,@RequestBody String chassi){
         Carro carro = carroService.getCarroByChassi(id, chassi);
         return new ResponseEntity<>(carro,HttpStatus.OK);
     }
     @PostMapping("/id")
-    public ResponseEntity <Carro> saveCarro(@PathVariable Long id, Carro carro){
+    public ResponseEntity <Carro> saveCarro(@PathVariable Long id,@RequestBody Carro carro){
         Carro carroNovo = carroService.saveCarro(id, carro);
         return new ResponseEntity<>(carroNovo,HttpStatus.OK);
     }
     @PutMapping("/id")
-    public ResponseEntity <Carro> updateCarro(@PathVariable Long id, Carro carro){
+    public ResponseEntity <Carro> updateCarro(@PathVariable Long id,@RequestBody Carro carro){
         Carro carroAtualizado = carroService.updateCarro(id, carro, carro.getNumeroChassi());
         return new ResponseEntity<>(carroAtualizado,HttpStatus.OK);
         
     }
     @DeleteMapping("/id")
-    public ResponseEntity <Carro> deleteLogicalCarro(@PathVariable Long id , String chassi){
+    public ResponseEntity <Carro> deleteLogicalCarro(@PathVariable Long id ,@RequestBody String chassi){
         Carro carro = carroService.deleteLogicalCarro(id, chassi);
         return new ResponseEntity<>(carro, HttpStatus.OK);
 

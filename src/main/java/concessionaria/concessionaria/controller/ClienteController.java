@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +48,7 @@ public class ClienteController {
         }
     }
     @PostMapping("/saveCliente")
-    public ResponseEntity<Cliente> saveCliente(Cliente cliente) {
+    public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente) {
         logger.info("Received request to save client: {}", cliente);
     
         try {
@@ -71,7 +71,7 @@ public class ClienteController {
     }
     
     @PutMapping("/Atualização/{id}")
-    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id, Cliente clienteAtualizado){
+    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id,@RequestBody Cliente clienteAtualizado){
             Cliente cliente = clienteService.updateCliente(id, clienteAtualizado);
             if (cliente != null) {
                 return new ResponseEntity<>(cliente, HttpStatus.OK);

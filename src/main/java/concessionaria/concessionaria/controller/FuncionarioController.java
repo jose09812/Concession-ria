@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import concessionaria.concessionaria.entities.Funcionario;
 import concessionaria.concessionaria.service.FuncionarioService;
@@ -40,7 +41,7 @@ public class FuncionarioController {
         }
     }
     @PostMapping
-    public ResponseEntity<Funcionario> saveFuncionario(Funcionario funcionario ){
+    public ResponseEntity<Funcionario> saveFuncionario(@RequestBody Funcionario funcionario ){
         Funcionario funcionarioNovo = funcionarioService.saveFuncionario(funcionario);
         if (funcionarioNovo != null) {
             return new ResponseEntity<>(funcionario , HttpStatus.OK);
@@ -50,7 +51,7 @@ public class FuncionarioController {
 
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Funcionario> updateFuncionario(@PathVariable Long id, Funcionario funcionarioAtualizado){
+    public ResponseEntity<Funcionario> updateFuncionario(@PathVariable Long id,@RequestBody Funcionario funcionarioAtualizado){
             Funcionario funcionario = funcionarioService.updateFuncionario(id, funcionarioAtualizado);
             if (funcionario != null) {
                 return new ResponseEntity<>(funcionario, HttpStatus.OK);

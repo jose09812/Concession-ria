@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import concessionaria.concessionaria.Enum.Modelo;
 import concessionaria.concessionaria.entities.Venda;
@@ -42,7 +43,7 @@ public class VendasController {
     }
 
     @PostMapping
-    public ResponseEntity<Venda> saveVenda(Venda venda) {
+    public ResponseEntity<Venda> saveVenda(@RequestBody Venda venda) {
         Venda vendaNovo = vendaService.saveVenda(venda);
         if (vendaNovo != null) {
             return new ResponseEntity<>(venda, HttpStatus.OK);
@@ -53,7 +54,7 @@ public class VendasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Venda> updateVenda(@PathVariable Long id, Venda vendaAtualizado) {
+    public ResponseEntity<Venda> updateVenda(@PathVariable Long id,@RequestBody Venda vendaAtualizado) {
         Venda venda = vendaService.updateVenda(id, vendaAtualizado);
         if (venda != null) {
             return new ResponseEntity<>(venda, HttpStatus.OK);
@@ -87,7 +88,7 @@ public class VendasController {
     }
 
     @GetMapping("/valor/modelo/{id}")
-    public ResponseEntity<Double> vendaTotalPorModelo(@PathVariable Long id, Modelo modelo) {
+    public ResponseEntity<Double> vendaTotalPorModelo(@PathVariable Long id,@RequestBody Modelo modelo) {
         double valor = vendaService.vendaTotalPorModelo(modelo);
         if (valor != 0) {
             return new ResponseEntity<>(valor, HttpStatus.OK);
@@ -99,7 +100,7 @@ public class VendasController {
     }
 
     @GetMapping("/numero-vendas-total/{id}")
-    public ResponseEntity<Integer> numeroTotalVendas(@PathVariable Long id,Modelo modelo){
+    public ResponseEntity<Integer> numeroTotalVendas(@PathVariable Long id,@RequestBody Modelo modelo){
      int valor = vendaService.numeroTotalVendas();
         if(valor != 0){
             return new ResponseEntity<>(valor,HttpStatus.OK);
@@ -110,7 +111,7 @@ public class VendasController {
     }
 
 @GetMapping("/numero-vendas-total/modelo/{id}")
-    public ResponseEntity<Integer> numeroVendasPorModelo(@PathVariable Long id,Modelo modelo){
+    public ResponseEntity<Integer> numeroVendasPorModelo(@PathVariable Long id,@RequestBody Modelo modelo){
      int valor = vendaService.numeroVendasPorModelo(modelo);
         if(valor != 0){
             return new ResponseEntity<>(valor,HttpStatus.OK);
